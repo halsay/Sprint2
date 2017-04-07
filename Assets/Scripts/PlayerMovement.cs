@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
     Rigidbody2D rbody;
     Animator anim;
-
+    public float speed = 5;
 	// Use this for initialization
 	void Start () {
         rbody = GetComponent<Rigidbody2D>();
@@ -25,6 +25,6 @@ public class PlayerMovement : MonoBehaviour {
             anim.SetBool("is_walking", false);
         }
 
-        rbody.MovePosition(rbody.position + movement_vector*Time.deltaTime*3);
+        rbody.MovePosition(rbody.position + movement_vector*Time.deltaTime*speed);
 	}
 }

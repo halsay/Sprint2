@@ -76,6 +76,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\DialogueHolder.cs" />
+    <Compile Include="Assets\Scripts\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\ScreenFader.cs" />
     <Compile Include="Assets\Scripts\Warp.cs" />
@@ -102,6 +104,7 @@
     <None Include="Assets\Tiled2Unity\Imported\map2.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\map3.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\map4.tiled2unity.xml" />
+    <None Include="Assets\Tiled2Unity\Imported\map5.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\License.txt" />
     <None Include="Assets\Tiled2Unity\Materials\_ReadMe.txt" />
     <None Include="Assets\Tiled2Unity\Meshes\_ReadMe.txt" />

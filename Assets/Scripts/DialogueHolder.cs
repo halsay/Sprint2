@@ -7,8 +7,10 @@ public class DialogueHolder : MonoBehaviour {
     public string dialogue;
     private DialogueManager dMan;
 
-	// Use this for initialization
-	void Start () {
+    public string[] dialogLines;
+
+    // Use this for initialization
+    void Start () {
         dMan = FindObjectOfType<DialogueManager>();
 	}
 	
@@ -19,11 +21,17 @@ public class DialogueHolder : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if(other.gameObject.name == "player")
+        if(other.gameObject.name == "Little")
         {
             if(Input.GetKeyUp(KeyCode.Space))
             {
-                dMan.ShowBox(dialogue);
+
+                if(!dMan.dialogActive)
+                {
+                    dMan.dialogLines = dialogLines;
+                    dMan.currentLine = 0;
+                    dMan.ShowDialogue();
+                }
             }
         }
     }

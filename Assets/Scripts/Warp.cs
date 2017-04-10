@@ -16,10 +16,11 @@ public class Warp : MonoBehaviour
         yield return StartCoroutine(sf.FadeToBlack());
 
         collision.gameObject.transform.position = warpTarget.transform.position;
+        Camera.main.transform.position = collision.gameObject.transform.position;
         big.transform.position = collision.gameObject.transform.position;
         middle.transform.position = collision.gameObject.transform.position;
         
-        Camera.main.transform.position = collision.gameObject.transform.position;
+        
 
         yield return StartCoroutine(sf.FadeToClear());
 

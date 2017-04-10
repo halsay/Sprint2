@@ -15,16 +15,22 @@ public class IntroManager : MonoBehaviour {
     public int currentLine = 0;
 
     private bool finished = false;
-    //private ScreenFader sf;
+    private bool faded = false;
+    private ScreenFader sf;
 
     // Use this for initialization
     void Start() {
-        StartCoroutine(fadeIn());
-        
+        sf = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
+
     }
     // Update is called once per frame
     void Update()
     {
+        /*if (!faded)
+        {
+            StartCoroutine(fadeIn());
+            faded = true;
+        }*/
         if (currentLine >= dialogLines.Length -1)
         {
             finished = true;
@@ -47,6 +53,7 @@ public class IntroManager : MonoBehaviour {
             dBox.SetActive(false);
             dialogActive = false;
             StartCoroutine(fadeOut());
+            
         }
         Debug.Log(dialogLines);
 
@@ -56,15 +63,8 @@ public class IntroManager : MonoBehaviour {
 
     }
     
-    private IEnumerator fadeIn()
-    {
-        ScreenFader sf = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
-        yield return StartCoroutine(sf.FadeToClear());
-    }
-
     private IEnumerator fadeOut()
     {
-        ScreenFader sf = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
         yield return StartCoroutine(sf.FadeToBlack());
         SceneManager.LoadScene("main", LoadSceneMode.Single);
 

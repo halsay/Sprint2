@@ -13,11 +13,13 @@ public class DialogueManager : MonoBehaviour {
     public string[] dialogLines;
     public int currentLine;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
+    private GameObject pMov;
+
+    // Use this for initialization
+    void Start()
+    {
+        pMov = GameObject.FindGameObjectWithTag("Little");
+    }
 	// Update is called once per frame
 	void Update () {
         if (dialogActive && Input.GetKeyDown(KeyCode.Space)) 
@@ -29,7 +31,7 @@ public class DialogueManager : MonoBehaviour {
         {
             dBox.SetActive(false);
             dialogActive = false;
-
+            pMov.GetComponent<PlayerMovement>().canMove = true;
             currentLine = 0;
         }
 
@@ -40,12 +42,14 @@ public class DialogueManager : MonoBehaviour {
     {
         dialogActive = true;
         dBox.SetActive(true);
-        dText.text = dialogue; 
+        dText.text = dialogue;
+        pMov.GetComponent<PlayerMovement>().canMove = false;
     }
 
     public void ShowDialogue()
     {
         dialogActive = true;
         dBox.SetActive(true);
+        pMov.GetComponent<PlayerMovement>().canMove = false; 
     }
 }

@@ -9,7 +9,7 @@ public class StartMenu : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            SceneManager.LoadScene("main", LoadSceneMode.Single);
+            SceneManager.LoadScene("intro", LoadSceneMode.Single);
         }
 
     }

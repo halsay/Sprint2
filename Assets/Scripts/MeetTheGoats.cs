@@ -12,6 +12,7 @@ public class MeetTheGoats : MonoBehaviour {
 
     private GameObject npc;
     public string[] dialogLines;
+    public string[] speakers;
 
     // Use this for initialization
     void Start()
@@ -39,6 +40,7 @@ public class MeetTheGoats : MonoBehaviour {
                 if (!dMan.dialogActive)
                 {
                     dMan.dialogLines = dialogLines;
+                    dMan.speakers = speakers;
                     dMan.currentLine = 0;
                     dMan.ShowDialogue();
                 }

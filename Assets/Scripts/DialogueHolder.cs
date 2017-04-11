@@ -9,6 +9,7 @@ public class DialogueHolder : MonoBehaviour {
 
 
     public string[] dialogLines;
+    public string[] speakers;
 
     // Use this for initialization
     void Start () {
@@ -30,6 +31,7 @@ public class DialogueHolder : MonoBehaviour {
                 if(!dMan.dialogActive)
                 {
                     dMan.dialogLines = dialogLines;
+                    dMan.speakers = speakers;
                     dMan.currentLine = 0;
                     dMan.ShowDialogue();
                 }

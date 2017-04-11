@@ -7,10 +7,12 @@ public class DialogueManager : MonoBehaviour {
 
     public GameObject dBox;
     public Text dText;
+    public Text cText;
 
     public bool dialogActive;
 
     public string[] dialogLines;
+    public string[] speakers;
     public int currentLine;
 
     private GameObject pMov;
@@ -36,12 +38,14 @@ public class DialogueManager : MonoBehaviour {
         }
 
         dText.text = dialogLines[currentLine];
-	}
+        cText.text = speakers[currentLine];
+    }
 
     public void ShowBox(string dialogue)
     {
         dialogActive = true;
         dBox.SetActive(true);
+
         dText.text = dialogue;
         pMov.GetComponent<PlayerMovement>().canMove = false;
     }

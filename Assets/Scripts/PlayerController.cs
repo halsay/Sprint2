@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour {
         Middle.GetComponent<PlayerMovement>().canMove = false;
         Big.GetComponent<PlayerMovement>().canMove = false;
         Little.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-        Middle.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-        Big.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        Middle.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+        Big.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
     }
 	
 	// Update is called once per frame
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
             {
                 case 0:
                     Little.GetComponent<PlayerMovement>().canMove = false;
-                    Little.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                    Little.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                     Little.GetComponent<Animator>().SetBool("is_walking", false);
                     Middle.GetComponent<PlayerMovement>().canMove = true;
                     Middle.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour {
                     break;
                 case 1:
                     Middle.GetComponent<PlayerMovement>().canMove = false;
-                    Middle.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                    Middle.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                     Middle.GetComponent<Animator>().SetBool("is_walking", false);
                     Big.GetComponent<PlayerMovement>().canMove = true;
                     Big.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour {
                     break;
                 case 2:
                     Big.GetComponent<PlayerMovement>().canMove = false;
-                    Big.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                    Big.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                     Big.GetComponent<Animator>().SetBool("is_walking", false);
                     Little.GetComponent<PlayerMovement>().canMove = true;
                     Little.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;

@@ -29,7 +29,7 @@ public class ButtonController : MonoBehaviour {
                 anim.SetBool("Up", true);
                 anim.SetBool("Down", false);
             }
-            if (doorTag == "WhiteDoor")
+            /*if (doorTag == "WhiteDoor")
             {
                 GameObject.FindObjectOfType<Door>().whiteActive = true;
             }
@@ -42,7 +42,7 @@ public class ButtonController : MonoBehaviour {
             if (doorTag == "BlackDoor")
             {
                 GameObject.FindObjectOfType<Door>().blackActive = true;
-            }
+            }*/
         }
     }
 
@@ -56,7 +56,7 @@ public class ButtonController : MonoBehaviour {
                 anim.SetBool("Down", true);
                 anim.SetBool("Up", false);
             }
-            if (doorTag == "WhiteDoor")
+            /*if (doorTag == "WhiteDoor")
             {
                 GameObject.FindObjectOfType<Door>().whiteActive = false;
             }
@@ -69,7 +69,7 @@ public class ButtonController : MonoBehaviour {
             if (doorTag == "BlackDoor")
             {
                 GameObject.FindObjectOfType<Door>().blackActive = false;
-            }
+            }*/
         }
 
     }

@@ -21,19 +21,19 @@ public class CameraSwitch : MonoBehaviour {
             case 0:
                 if (target1)
                 {
-                    transform.position = Vector3.Lerp(transform.position, target1.position, 0.1f) + new Vector3(0, 0, -10);
+                    transform.position = Vector3.Lerp(transform.position, target1.position, 1f) + new Vector3(0, 0, -10);
                 }
                 break;
             case 1:
                 if (target2)
                 {
-                    transform.position = Vector3.Lerp(transform.position, target2.position, 0.1f) + new Vector3(0, 0, -10);
+                    transform.position = Vector3.Lerp(transform.position, target2.position, 1f) + new Vector3(0, 0, -10);
                 }
                 break;
             case 2:
                 if (target3)
                 {
-                    transform.position = Vector3.Lerp(transform.position, target3.position, 0.1f) + new Vector3(0, 0, -10);
+                    transform.position = Vector3.Lerp(transform.position, target3.position, 1f) + new Vector3(0, 0, -10);
                 }
                 break;
         }

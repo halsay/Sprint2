@@ -9,10 +9,12 @@ public class Door : MonoBehaviour {
     public bool blackActive = true;
     private bool deactivated = false;
     private GameObject doorControl;
+    
 
 	// Use this for initialization
 	void Start () {
         doorControl = GameObject.FindGameObjectWithTag("DoorControl");
+        
 
     }
 	

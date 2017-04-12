@@ -87,8 +87,10 @@
     <Compile Include="Assets\Scripts\MeetTheGoats.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Portal.cs" />
     <Compile Include="Assets\Scripts\ScreenFader.cs" />
     <Compile Include="Assets\Scripts\StartMenu.cs" />
+    <Compile Include="Assets\Scripts\Teleport.cs" />
     <Compile Include="Assets\Scripts\Warp.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\CircleObject.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GroupLayer.cs" />
@@ -110,6 +112,7 @@
   <ItemGroup>
     <None Include="Assets\Tiled2Unity\Imported\_ReadMe.txt" />
     <None Include="Assets\Tiled2Unity\Imported\level1a and 1c.tiled2unity.xml" />
+    <None Include="Assets\Tiled2Unity\Imported\level2b.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\map1.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\map2.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\map3.tiled2unity.xml" />

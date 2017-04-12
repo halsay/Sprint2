@@ -15,7 +15,6 @@ public class IntroManager : MonoBehaviour {
     public int currentLine = 0;
 
     private bool finished = false;
-    private bool faded = false;
     private ScreenFader sf;
 
     // Use this for initialization

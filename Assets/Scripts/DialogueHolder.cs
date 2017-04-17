@@ -39,6 +39,7 @@ public class DialogueHolder : MonoBehaviour {
         if(other.gameObject.name == "Little")
         {
             dMan.isTree = true;
+            isTree = true;
             if (Input.GetKeyUp(KeyCode.Space))
             {
                 if(!dMan.dialogActive)
@@ -49,6 +50,30 @@ public class DialogueHolder : MonoBehaviour {
                     dMan.ShowDialogue();
                 }
             }
+        }
+    }
+    public void makeChoice(int num)
+    {
+        switch (num)
+        {
+            case 1:
+                dMan.dialogLines = dialogLinesA;
+                dMan.speakers = speakersA;
+                dMan.currentLine = 0;
+                dMan.ShowDialogue();
+                break;
+            case 2:
+                dMan.dialogLines = dialogLinesB;
+                dMan.speakers = speakersB;
+                dMan.currentLine = 0;
+                dMan.ShowDialogue();
+                break;
+            case 3:
+                dMan.dialogLines = dialogLinesC;
+                dMan.speakers = speakersC;
+                dMan.currentLine = 0;
+                dMan.ShowDialogue();
+                break;
         }
     }
 

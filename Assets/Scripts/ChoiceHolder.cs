@@ -24,9 +24,17 @@ public class ChoiceHolder : MonoBehaviour {
             cMan.choice2.text = choice2;
             cMan.choice3.text = choice3;
             cMan.dialogActive = true;
+            dHod.choiceAppear = false;
         }
         if (cMan.chosen)
+        {
             dHod.choiceAppear = false;
+            dHod.makeChoice(cMan.choice);
+            cMan.chosen = false;
+            dHod.isTree = false;
+        }
+
+
 
 	}
 }

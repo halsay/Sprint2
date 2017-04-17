@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour {
     public Text cText;
 
     public bool dialogActive;
+    public bool isTree;
 
     public string[] dialogLines;
     public string[] speakers;
@@ -20,13 +21,16 @@ public class DialogueManager : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        isTree = false;
         pMov = GameObject.FindGameObjectWithTag("Little");
     }
 	// Update is called once per frame
 	void Update () {
-        if (dialogActive && Input.GetKeyDown(KeyCode.Space)) 
+        if (dialogActive) 
         {
-            currentLine++;
+            pMov.GetComponent<PlayerMovement>().canMove = false;
+            if (Input.GetKeyDown(KeyCode.Space))
+                currentLine++;
         }
 
         if(currentLine >= dialogLines.Length)
@@ -41,19 +45,11 @@ public class DialogueManager : MonoBehaviour {
         cText.text = speakers[currentLine];
     }
 
-    public void ShowBox(string dialogue)
-    {
-        dialogActive = true;
-        dBox.SetActive(true);
 
-        dText.text = dialogue;
-        pMov.GetComponent<PlayerMovement>().canMove = false;
-    }
 
     public void ShowDialogue()
     {
         dialogActive = true;
         dBox.SetActive(true);
-        pMov.GetComponent<PlayerMovement>().canMove = false; 
     }
 }

@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject Little, Middle, Big;
     public int state = 0;
+    private CameraSwitch camSwitch;
 
 	// Use this for initialization
 	void Start () {
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour {
         Little.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         Middle.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         Big.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+        camSwitch = FindObjectOfType<CameraSwitch>();
     }
 	
 	// Update is called once per frame
@@ -30,6 +32,7 @@ public class PlayerController : MonoBehaviour {
                     Middle.GetComponent<PlayerMovement>().canMove = true;
                     Middle.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                     state = 1;
+                    camSwitch.state = 1;
                     break;
                 case 1:
                     Middle.GetComponent<PlayerMovement>().canMove = false;
@@ -38,6 +41,7 @@ public class PlayerController : MonoBehaviour {
                     Big.GetComponent<PlayerMovement>().canMove = true;
                     Big.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                     state = 2;
+                    camSwitch.state = 2;
                     break;
                 case 2:
                     Big.GetComponent<PlayerMovement>().canMove = false;
@@ -46,6 +50,7 @@ public class PlayerController : MonoBehaviour {
                     Little.GetComponent<PlayerMovement>().canMove = true;
                     Little.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                     state = 0;
+                    camSwitch.state = 0;
                     break;
 
             }

@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour {
     public string doorTag;
-    private GameObject[] door;
+    //private GameObject[] door;
     public Collider2D goat;
     private Animator anim;
     private bool pressed;
+    private Door doorControl;
 
     // Use this for initialization
     void Start () {
-        door = GameObject.FindGameObjectsWithTag(doorTag);
+        //door = GameObject.FindGameObjectsWithTag(doorTag);
         anim = GetComponent<Animator>();
         pressed = false;
+        doorControl = FindObjectOfType<Door>();
+        
     }
 	
 	// Update is called once per frame
@@ -25,13 +28,25 @@ public class ButtonController : MonoBehaviour {
     {
         if (collision == goat)
         {
-            for (int i = 0; i < door.Length; i++)
+            /*for (int i = 0; i < door.Length; i++)
             {
                 door[i].SetActive(true);
-                anim.SetBool("Up", true);
-                anim.SetBool("Down", false);
+            }*/
+            if (doorTag == "BrownDoor")
+            {
+                doorControl.brownPressed = false;
+            }
+            if (doorTag == "WhiteDoor")
+            {
+                doorControl.whitePressed = false;
             }
 
+            if (doorTag == "BlackDoor")
+            {
+                doorControl.blackPressed = false;
+            }
+            anim.SetBool("Up", true);
+            anim.SetBool("Down", false);
             pressed = false;
             /*if (doorTag == "WhiteDoor")
             {
@@ -62,12 +77,26 @@ public class ButtonController : MonoBehaviour {
                 pressed = true;
             }
 
-            for (int i = 0; i < door.Length; i++)
+            /* for (int i = 0; i < door.Length; i++)
+             {
+                 door[i].SetActive(false);
+
+             }*/
+            if (doorTag == "BrownDoor")
             {
-                door[i].SetActive(false);
-                anim.SetBool("Down", true);
-                anim.SetBool("Up", false);
+                doorControl.brownPressed = true;
             }
+            if (doorTag == "WhiteDoor")
+            {
+                doorControl.whitePressed = true;
+            }
+
+            if (doorTag == "BlackDoor")
+            {
+                doorControl.blackPressed = true;
+            }
+            anim.SetBool("Down", true);
+            anim.SetBool("Up", false);
             /*if (doorTag == "WhiteDoor")
             {
                 GameObject.FindObjectOfType<Door>().whiteActive = false;

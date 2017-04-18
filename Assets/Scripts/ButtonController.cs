@@ -54,12 +54,14 @@ public class ButtonController : MonoBehaviour {
     {
         //if (collision == goat)
         // {
-        if (!pressed)
+        if (collision.gameObject.name != "Troll")
         {
-            goat = collision;
-            pressed = true;
-        }
-        
+            if (!pressed)
+            {
+                goat = collision;
+                pressed = true;
+            }
+
             for (int i = 0; i < door.Length; i++)
             {
                 door[i].SetActive(false);
@@ -80,7 +82,8 @@ public class ButtonController : MonoBehaviour {
             {
                 GameObject.FindObjectOfType<Door>().blackActive = false;
             }*/
-       // }
+            // }
 
+        }
     }
 }

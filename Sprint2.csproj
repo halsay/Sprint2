@@ -96,7 +96,9 @@
     <Compile Include="Assets\Scripts\StartMenu.cs" />
     <Compile Include="Assets\Scripts\Teleport.cs" />
     <Compile Include="Assets\Scripts\Trap.cs" />
+    <Compile Include="Assets\Scripts\Troll.cs" />
     <Compile Include="Assets\Scripts\Warp.cs" />
+    <Compile Include="Assets\Scripts\checkPoint.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\CircleObject.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GroupLayer.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\ImportBehaviour.cs" />
@@ -116,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Tiled2Unity\Imported\_ReadMe.txt" />
+    <None Include="Assets\Tiled2Unity\Imported\cover.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\level1a and 1c.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\level2.1.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\level2.tiled2unity.xml" />

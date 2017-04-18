@@ -11,9 +11,12 @@ public class Monologue : MonoBehaviour {
     public string[] dialogLines;
     public string[] speakers;
 
+    private bool triggered;
+
     // Use this for initialization
     void Start()
     {
+        triggered = false;
         dMan = FindObjectOfType<DialogueManager>();
     }
 
@@ -21,7 +24,7 @@ public class Monologue : MonoBehaviour {
     {
         if (other.gameObject.name == "Little")
         {
-            if (!dMan.dialogActive)
+            if (!dMan.dialogActive && !triggered)
             {
                 dMan.dialogLines = dialogLines;
                 dMan.speakers = speakers;
@@ -29,6 +32,14 @@ public class Monologue : MonoBehaviour {
                 dMan.ShowDialogue();
             }
 
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.name == "Little")
+        {
+            triggered = true;
         }
     }
 

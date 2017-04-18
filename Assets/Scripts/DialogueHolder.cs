@@ -39,7 +39,6 @@ public class DialogueHolder : MonoBehaviour {
         if(other.gameObject.name == "Little")
         {
             dMan.isTree = true;
-            isTree = true;
             if (Input.GetKeyUp(KeyCode.Space))
             {
                 if(!dMan.dialogActive)

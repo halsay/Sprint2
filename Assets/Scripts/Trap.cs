@@ -33,7 +33,7 @@ public class Trap : MonoBehaviour {
                 dMan.ShowDialogue();
             }
 
-            yield return new WaitForSeconds(1f);
+           // yield return new WaitForSeconds(1f);
             anim.SetTrigger("activated");
             GameObject.FindGameObjectWithTag("Little").SetActive(false);
             GameObject.FindGameObjectWithTag("Middle").SetActive(false);

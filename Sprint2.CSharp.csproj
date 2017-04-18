@@ -123,6 +123,7 @@
     <None Include="Assets\Tiled2Unity\Imported\level3a.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\level3b.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\level3c.tiled2unity.xml" />
+    <None Include="Assets\Tiled2Unity\Imported\levelfinal.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\map1.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\map2.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\map3.tiled2unity.xml" />

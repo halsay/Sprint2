@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Trap : MonoBehaviour {
     private Animator anim;
@@ -8,6 +9,7 @@ public class Trap : MonoBehaviour {
     public string[] dialogLines;
     public string[] speakers;
     public Animator troll;
+
     // Use this for initialization
     void Start () {
         anim = GetComponent<Animator>();
@@ -38,7 +40,9 @@ public class Trap : MonoBehaviour {
             GameObject.FindGameObjectWithTag("Big").SetActive(false);
             yield return new WaitForSeconds(2f);
             troll.SetTrigger("appear");
-            
+            yield return new WaitForSeconds(2f);
+            SceneManager.LoadScene("stage", LoadSceneMode.Single);
+
         }
     }
 }

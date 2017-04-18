@@ -15,10 +15,21 @@ public class Monologue : MonoBehaviour {
     void Start()
     {
         dMan = FindObjectOfType<DialogueManager>();
-        dMan.dialogLines = dialogLines;
-        dMan.speakers = speakers;
-        dMan.currentLine = 0;
-        dMan.ShowDialogue();
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name == "Little")
+        {
+            if (!dMan.dialogActive)
+            {
+                dMan.dialogLines = dialogLines;
+                dMan.speakers = speakers;
+                dMan.currentLine = 0;
+                dMan.ShowDialogue();
+            }
+
+        }
     }
 
 

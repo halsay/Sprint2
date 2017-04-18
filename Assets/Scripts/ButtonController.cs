@@ -7,11 +7,13 @@ public class ButtonController : MonoBehaviour {
     private GameObject[] door;
     public Collider2D goat;
     private Animator anim;
+    private bool pressed;
 
     // Use this for initialization
     void Start () {
         door = GameObject.FindGameObjectsWithTag(doorTag);
         anim = GetComponent<Animator>();
+        pressed = false;
     }
 	
 	// Update is called once per frame
@@ -29,6 +31,8 @@ public class ButtonController : MonoBehaviour {
                 anim.SetBool("Up", true);
                 anim.SetBool("Down", false);
             }
+
+            pressed = false;
             /*if (doorTag == "WhiteDoor")
             {
                 GameObject.FindObjectOfType<Door>().whiteActive = true;
@@ -48,8 +52,14 @@ public class ButtonController : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision == goat)
+        //if (collision == goat)
+        // {
+        if (!pressed)
         {
+            goat = collision;
+            pressed = true;
+        }
+        
             for (int i = 0; i < door.Length; i++)
             {
                 door[i].SetActive(false);
@@ -70,7 +80,7 @@ public class ButtonController : MonoBehaviour {
             {
                 GameObject.FindObjectOfType<Door>().blackActive = false;
             }*/
-        }
+       // }
 
     }
 }

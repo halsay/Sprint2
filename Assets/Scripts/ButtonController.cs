@@ -25,78 +25,142 @@ public class ButtonController : MonoBehaviour {
 	}
 
     private void OnTriggerExit2D(Collider2D collision)
+    
+
     {
+        Debug.Log("in");
         if (collision == goat)
         {
-            /*for (int i = 0; i < door.Length; i++)
-            {
-                door[i].SetActive(true);
-            }*/
+            Debug.Log("hi");
             if (doorTag == "BrownDoor")
             {
-                doorControl.brownPressed = false;
+                if (!doorControl.multiBrown)
+                {
+                    doorControl.brownPressed = false;
+                    anim.SetBool("Up", true);
+                    anim.SetBool("Down", false);
+                    pressed = false;
+                }
+                if (doorControl.multiBrown)
+                {
+                    doorControl.multiBrown = false;
+                }
             }
             if (doorTag == "WhiteDoor")
             {
-                doorControl.whitePressed = false;
+                Debug.Log("white");
+                
+                if(!doorControl.multiWhite)
+                {
+                    Debug.Log("close");
+                    doorControl.whitePressed = false;
+                    anim.SetBool("Up", true);
+                    anim.SetBool("Down", false);
+                    pressed = false;
+                }
+                if (doorControl.multiWhite)
+                {
+                    doorControl.multiWhite = false;
+                }
             }
 
             if (doorTag == "BlackDoor")
             {
-                doorControl.blackPressed = false;
+                
+                if (!doorControl.multiBlack)
+                {
+                    doorControl.blackPressed = false;
+                    anim.SetBool("Up", true);
+                    anim.SetBool("Down", false);
+                    pressed = false;
+                }
+                if (doorControl.multiBlack)
+                {
+                    doorControl.multiBlack = false;
+                }
             }
-            anim.SetBool("Up", true);
-            anim.SetBool("Down", false);
-            pressed = false;
-            /*if (doorTag == "WhiteDoor")
-            {
-                GameObject.FindObjectOfType<Door>().whiteActive = true;
-            }
-
-            if (doorTag == "BrownDoor")
-            {
-                GameObject.FindObjectOfType<Door>().brownActive = true;
-            }
-
-            if (doorTag == "BlackDoor")
-            {
-                GameObject.FindObjectOfType<Door>().blackActive = true;
-            }*/
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         //if (collision == goat)
         // {
         if (collision.gameObject.name != "Troll")
         {
-            if (!pressed)
+            goat = collision;
+            if (doorTag == "BrownDoor")
+            {
+                if (!doorControl.multiBrown && doorControl.brownPressed)
+                {
+                    doorControl.multiBrown = true;
+                }
+                doorControl.brownPressed = true;
+            }
+            if (doorTag == "WhiteDoor")
+            {
+                if (!doorControl.multiWhite && doorControl.whitePressed )
+                {
+                    doorControl.multiWhite = true;
+                }
+                doorControl.whitePressed = true;
+            }
+
+            if (doorTag == "BlackDoor")
+            {
+                if (!doorControl.multiBlack && doorControl.blackPressed)
+                {
+                    doorControl.multiBlack = true;
+                }
+                doorControl.blackPressed = true;
+            }
+
+            anim.SetBool("Down", true);
+            anim.SetBool("Up", false);
+
+           /* if (!pressed)
             {
                 goat = collision;
                 pressed = true;
+                if (doorTag == "BrownDoor")
+                {
+                    doorControl.brownPressed = true;
+                }
+                if (doorTag == "WhiteDoor")
+                {
+                    doorControl.whitePressed = true;
+                }
+
+                if (doorTag == "BlackDoor")
+                {
+                    doorControl.blackPressed = true;
+                }
+                
             }
+
+            if (pressed)
+            {
+                if (doorTag == "BrownDoor")
+                {
+                    doorControl.multiBrown = true;
+                }
+                if (doorTag == "WhiteDoor")
+                {
+                    doorControl.multiWhite = true;
+                }
+
+                if (doorTag == "BlackDoor")
+                {
+                    doorControl.multiBlack = true;
+                }
+            }*/
 
             /* for (int i = 0; i < door.Length; i++)
              {
                  door[i].SetActive(false);
 
              }*/
-            if (doorTag == "BrownDoor")
-            {
-                doorControl.brownPressed = true;
-            }
-            if (doorTag == "WhiteDoor")
-            {
-                doorControl.whitePressed = true;
-            }
-
-            if (doorTag == "BlackDoor")
-            {
-                doorControl.blackPressed = true;
-            }
-            anim.SetBool("Down", true);
-            anim.SetBool("Up", false);
+            
             /*if (doorTag == "WhiteDoor")
             {
                 GameObject.FindObjectOfType<Door>().whiteActive = false;

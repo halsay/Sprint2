@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour {
 
     public bool switchCam = false;
 
-    private GameObject pMov;
+    private GameObject little,middle,big;
     private CameraSwitch camSwitch;
     private PlayerController pCon;
 
@@ -26,7 +26,9 @@ public class DialogueManager : MonoBehaviour {
     void Start()
     {
         isTree = false;
-        pMov = GameObject.FindGameObjectWithTag("Little");
+        little = GameObject.FindGameObjectWithTag("Little");
+        middle = GameObject.FindGameObjectWithTag("Middle");
+        big = GameObject.FindGameObjectWithTag("Big");
         if (switchCam)
         {
             camSwitch = FindObjectOfType<CameraSwitch>();
@@ -38,9 +40,12 @@ public class DialogueManager : MonoBehaviour {
 	void Update () {
         if (dialogActive) 
         {
-            pMov.GetComponent<PlayerMovement>().canMove = false;
+            little.GetComponent<PlayerMovement>().canMove = false;
             if (switchCam)
             {
+
+                middle.GetComponent<PlayerMovement>().canMove = false;
+                big.GetComponent<PlayerMovement>().canMove = false;
                 if (speakers[currentLine] == "Little")
                 {
                     camSwitch.state = 0;
@@ -53,6 +58,10 @@ public class DialogueManager : MonoBehaviour {
                 {
                     camSwitch.state = 2;
                 }
+                if (speakers[currentLine] == "Troll")
+                {
+                    camSwitch.state = 3;
+                }
             }
             if (Input.GetKeyDown(KeyCode.Space))
                 currentLine++;
@@ -62,10 +71,23 @@ public class DialogueManager : MonoBehaviour {
         {
             dBox.SetActive(false);
             dialogActive = false;
-            pMov.GetComponent<PlayerMovement>().canMove = true;
+            
             currentLine = 0;
             if (switchCam)
+            {
+                if (pCon.state == 0)
+                    little.GetComponent<PlayerMovement>().canMove = true;
+                if (pCon.state == 1)
+                    middle.GetComponent<PlayerMovement>().canMove = true;
+                if (pCon.state == 2)
+                    big.GetComponent<PlayerMovement>().canMove = true;
                 camSwitch.state = pCon.state;
+            }
+            if (!switchCam)
+            {
+                little.GetComponent<PlayerMovement>().canMove = true;
+            }
+                
         }
 
         dText.text = dialogLines[currentLine];

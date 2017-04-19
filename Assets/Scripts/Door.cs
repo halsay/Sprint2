@@ -8,7 +8,7 @@ public class Door : MonoBehaviour {
     public bool whitePressed;
     public bool blackPressed;
     private GameObject[] brownDoors, whiteDoors, blackDoors;
-
+    public bool multiBrown, multiWhite, multiBlack;
     
 
 	// Use this for initialization

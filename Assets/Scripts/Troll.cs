@@ -8,6 +8,7 @@ public class Troll : MonoBehaviour {
     public float dist = 0;
     public bool canMove;
     public bool dialogueDone;
+    private bool faded;
     private Transform troll;
     private Vector2 movement;
     private Vector2 delta;
@@ -22,7 +23,7 @@ public class Troll : MonoBehaviour {
     {
         sf = FindObjectOfType<ScreenFader>();
         troll = this.transform;
-        dialogueDone = false;
+        faded = dialogueDone = false;
         //target = GameObject.FindGameObjectWithTag("Little").transform;
         anim = GetComponent<Animator>();
         anim.SetTrigger("appear");
@@ -37,33 +38,48 @@ public class Troll : MonoBehaviour {
 
         //troll.rotation = Quaternion.Slerp(troll.rotation, Quaternion.LookRotation(target.position - troll.position), );
         // troll.position += troll.forward * movSpeed * Time.deltaTime;
-        if (canMove)
+        if (!faded)
         {
-            if (Vector2.Distance(troll.position, target.position) > dist)
+            if (canMove)
             {
-                movement = Vector2.MoveTowards(troll.position, target.position, movSpeed * Time.deltaTime);
-                delta = target.position - troll.position;
-                troll.position = movement;
+                if (Vector2.Distance(troll.position, target.position) > dist)
+                {
+                    movement = Vector2.MoveTowards(troll.position, target.position, movSpeed * Time.deltaTime);
+                    delta = target.position - troll.position;
+                    troll.position = movement;
 
-                anim.SetBool("is_walking", true);
-                anim.SetFloat("input_x", delta.x);
-                anim.SetFloat("input_y", delta.y);
+                    anim.SetBool("is_walking", true);
+                    anim.SetFloat("input_x", delta.x);
+                    anim.SetFloat("input_y", delta.y);
+                }
+                else
+                {
+                    anim.SetBool("is_walking", false);
+                }
             }
-            else
-            {
-                anim.SetBool("is_walking", false);
-            }
-        }
 
-        if (dialogueDone && !dMan.dialogActive)
-        {
-            little.SetActive(false);
-            middle.SetActive(false);
-            big.SetActive(false);
-            if (!ilist.gotItem)
+            if (dialogueDone && !dMan.dialogActive)
             {
-                SceneManager.LoadScene("main", LoadSceneMode.Single);
+                Debug.Log("Ddone");
+                little.SetActive(false);
+                middle.SetActive(false);    
+                big.SetActive(false);
+                if (!ilist.gotItem)
+                {
+                    Debug.Log("to main");
+                    faded = true;
+                    StartCoroutine(fadeToMain());
+                }
+
+                if (ilist.gotItem)
+                {
+                    Debug.Log("to 2");
+                    faded = true;
+                    StartCoroutine(fadeTo2());
+                }
             }
+
+           
         }
 
     }
@@ -85,6 +101,13 @@ public class Troll : MonoBehaviour {
     {
         yield return StartCoroutine(sf.FadeToBlack());
         SceneManager.LoadScene("main", LoadSceneMode.Single);
+        //yield return StartCoroutine(sf.FadeToClear());
+    }
+
+    private IEnumerator fadeTo2()
+    {
+        yield return StartCoroutine(sf.FadeToBlack());
+        SceneManager.LoadScene("round2", LoadSceneMode.Single);
         //yield return StartCoroutine(sf.FadeToClear());
     }
 }

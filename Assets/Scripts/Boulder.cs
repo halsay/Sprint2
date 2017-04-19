@@ -11,13 +11,15 @@ public class Boulder : MonoBehaviour {
 
     private bool dialogDone;
 
-    private GameObject boulder;
+    private Animator anim;
+    private BoxCollider2D box;
 
     void Start()
     {
         dMan = FindObjectOfType<DialogueManager>();
-        boulder = this.gameObject; 
+        anim = GetComponent<Animator>();
         dialogDone = false;
+        box = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -25,7 +27,8 @@ public class Boulder : MonoBehaviour {
     {
         if (dialogDone)
         {
-            boulder.SetActive(false);
+            anim.SetTrigger("fall");
+            box.enabled = false;
         }
             
     }
@@ -34,7 +37,7 @@ public class Boulder : MonoBehaviour {
     {
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            if (other.gameObject.name == "Little")
+            if (other.gameObject.name == "Little" && !dialogDone)
             {
                 dMan.isTree = true;
                 if (!dMan.dialogActive)

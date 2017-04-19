@@ -20,7 +20,7 @@ public class checkPoint : MonoBehaviour {
         if (collision.gameObject.name == "Troll")
         {
             collision.GetComponent<Troll>().target = nextPoint;
-            collision.GetComponent<Troll>().movSpeed += 5;
+            collision.GetComponent<Troll>().movSpeed += 2;
             Debug.Log("1");
 
         }

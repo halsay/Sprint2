@@ -68,7 +68,7 @@ public class DialogueManager : MonoBehaviour {
                 currentLine++;
         }
 
-        if(currentLine >= dialogLines.Length || Input.GetKeyDown(KeyCode.S))
+        if(currentLine >= dialogLines.Length || Input.GetKeyDown(KeyCode.Escape))
         {
             dBox.SetActive(false);
             dialogActive = false;

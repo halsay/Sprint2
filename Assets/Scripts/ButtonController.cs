@@ -7,14 +7,12 @@ public class ButtonController : MonoBehaviour {
     //private GameObject[] door;
     public Collider2D goat;
     private Animator anim;
-    private bool pressed;
     private Door doorControl;
 
     // Use this for initialization
     void Start () {
         //door = GameObject.FindGameObjectsWithTag(doorTag);
         anim = GetComponent<Animator>();
-        pressed = false;
         doorControl = FindObjectOfType<Door>();
         
     }
@@ -39,7 +37,6 @@ public class ButtonController : MonoBehaviour {
                     doorControl.brownPressed = false;
                     anim.SetBool("Up", true);
                     anim.SetBool("Down", false);
-                    pressed = false;
                 }
                 if (doorControl.multiBrown)
                 {
@@ -56,7 +53,6 @@ public class ButtonController : MonoBehaviour {
                     doorControl.whitePressed = false;
                     anim.SetBool("Up", true);
                     anim.SetBool("Down", false);
-                    pressed = false;
                 }
                 if (doorControl.multiWhite)
                 {
@@ -72,7 +68,6 @@ public class ButtonController : MonoBehaviour {
                     doorControl.blackPressed = false;
                     anim.SetBool("Up", true);
                     anim.SetBool("Down", false);
-                    pressed = false;
                 }
                 if (doorControl.multiBlack)
                 {

@@ -38,6 +38,7 @@ public class DialogueManager : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
+
         if (dialogActive) 
         {
             little.GetComponent<PlayerMovement>().canMove = false;
@@ -67,7 +68,7 @@ public class DialogueManager : MonoBehaviour {
                 currentLine++;
         }
 
-        if(currentLine >= dialogLines.Length)
+        if(currentLine >= dialogLines.Length || Input.GetKeyDown(KeyCode.S))
         {
             dBox.SetActive(false);
             dialogActive = false;

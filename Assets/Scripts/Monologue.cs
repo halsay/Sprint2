@@ -5,6 +5,7 @@ using UnityEngine;
 public class Monologue : MonoBehaviour {
 
     public string dialogue;
+    public bool repeat;
     private DialogueManager dMan;
 
 
@@ -39,7 +40,10 @@ public class Monologue : MonoBehaviour {
     {
         if (other.gameObject.name == "Little")
         {
-            triggered = true;
+            if (!repeat)
+            {
+                triggered = true;
+            }
         }
     }
 

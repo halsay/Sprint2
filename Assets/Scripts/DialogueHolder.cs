@@ -8,6 +8,7 @@ public class DialogueHolder : MonoBehaviour {
     private DialogueManager dMan;
 
     public bool isTree;
+    public bool onlyOnce;
 
     public string[] dialogLines;
     public string[] dialogLinesA;

@@ -9,7 +9,6 @@ public class TrollTrigger : MonoBehaviour {
     public string[] speakers;
     public Animator troll;
     private bool dialogueFinished;
-    private Troll monster;
     public GameObject t;
     private bool little, middle, big;
 
@@ -17,7 +16,6 @@ public class TrollTrigger : MonoBehaviour {
     void Start()
     {
         dMan = FindObjectOfType<DialogueManager>();
-        monster = FindObjectOfType<Troll>();
         dialogueFinished = false;
         little = middle = big = false;
     }

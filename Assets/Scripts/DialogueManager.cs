@@ -65,7 +65,11 @@ public class DialogueManager : MonoBehaviour {
                 }
             }
             if (Input.GetKeyDown(KeyCode.Space))
-                currentLine++;
+            {
+                    currentLine++;
+            }
+            
+
         }
 
         if(currentLine >= dialogLines.Length || Input.GetKeyDown(KeyCode.Escape))

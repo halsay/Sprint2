@@ -8,6 +8,7 @@ public class Boulder : MonoBehaviour {
     private DialogueManager dMan;
     public string[] dialogLines;
     public string[] speakers;
+    public GameObject magicCircle;
 
     private bool dialogDone;
 
@@ -27,8 +28,10 @@ public class Boulder : MonoBehaviour {
     {
         if (dialogDone)
         {
-            anim.SetTrigger("fall");
-            box.enabled = false;
+            //anim.SetTrigger("fall");
+            //magicCircle.SetActive(true);
+            //this.gameObject.SetActive(false);
+            StartCoroutine(destroy());
         }
             
     }
@@ -50,5 +53,16 @@ public class Boulder : MonoBehaviour {
                 }
             }
         }
+    }
+
+    private IEnumerator destroy()
+    {
+        while (dMan.dialogActive)
+        {
+            yield return null;
+        }
+        GetComponent<SpriteRenderer>().enabled = false;
+        box.enabled = false;
+        magicCircle.SetActive(true);
     }
 }

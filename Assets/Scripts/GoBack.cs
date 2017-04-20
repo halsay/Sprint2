@@ -20,10 +20,10 @@ public class GoBack : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("1");
+        
         if (other.gameObject.name == "Little")
         {
-
+            thisGoat = other.GetComponent<Transform>();
             move = true;
         }
 

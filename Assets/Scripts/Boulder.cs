@@ -8,7 +8,13 @@ public class Boulder : MonoBehaviour {
     private DialogueManager dMan;
     public string[] dialogLines;
     public string[] speakers;
+    public string[] dialogLines1;
+    public string[] speakers1;
+
     public GameObject magicCircle;
+    public GameObject boarder;
+    public GoBack goBack;
+    public bool round3;
 
     private bool dialogDone;
 
@@ -45,11 +51,23 @@ public class Boulder : MonoBehaviour {
                 dMan.isTree = true;
                 if (!dMan.dialogActive)
                 {
-                    dMan.dialogLines = dialogLines;
-                    dMan.speakers = speakers;
-                    dMan.currentLine = 0;
-                    dMan.ShowDialogue();
-                    dialogDone = true;
+                    if (goBack.done)
+                    {
+                        dMan.dialogLines = dialogLines;
+                        dMan.speakers = speakers;
+                        dMan.currentLine = 0;
+                        dMan.ShowDialogue();
+                        dialogDone = true;
+                    }
+                    if (!goBack.done)
+                    {
+                        dMan.dialogLines = dialogLines1;
+                        dMan.speakers = speakers1;
+                        dMan.currentLine = 0;
+                        dMan.ShowDialogue();
+                    }
+                    if (round3)
+                        boarder.SetActive(false);
                 }
             }
         }

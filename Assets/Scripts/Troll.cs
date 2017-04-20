@@ -100,14 +100,14 @@ public class Troll : MonoBehaviour {
     private IEnumerator fadeToMain()
     {
         yield return StartCoroutine(sf.FadeToBlack());
-        SceneManager.LoadScene("main", LoadSceneMode.Single);
+        SceneManager.LoadScene("round3", LoadSceneMode.Single);
         //yield return StartCoroutine(sf.FadeToClear());
     }
 
     private IEnumerator fadeTo2()
     {
         yield return StartCoroutine(sf.FadeToBlack());
-        SceneManager.LoadScene("round2", LoadSceneMode.Single);
+        SceneManager.LoadScene("round3", LoadSceneMode.Single);
         //yield return StartCoroutine(sf.FadeToClear());
     }
 }

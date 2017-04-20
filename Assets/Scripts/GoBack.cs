@@ -7,6 +7,8 @@ public class GoBack : MonoBehaviour {
     public int movSpeed;
     public float dist = 10;
     public Transform thisGoat;
+    public bool done;
+
     private Vector2 movement;
     private Vector2 delta;
     Animator anim;
@@ -25,6 +27,7 @@ public class GoBack : MonoBehaviour {
         {
             thisGoat = other.GetComponent<Transform>();
             move = true;
+            done = true;
         }
 
     }

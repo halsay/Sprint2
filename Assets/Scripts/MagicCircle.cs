@@ -8,6 +8,7 @@ public class MagicCircle : MonoBehaviour {
     private DialogueManager dMan;
     public string[] dialogLines;
     public string[] speakers;
+    public GameObject Furry;
 
     // Use this for initialization
     void Start()
@@ -20,6 +21,11 @@ public class MagicCircle : MonoBehaviour {
     {
         if (other.tag == "Troll")
         {
+            
+            Furry.SetActive(true);
+            Furry.GetComponent<Transform>().position = other.transform.position;
+            other.gameObject.SetActive(false);
+
 
             if (!dMan.dialogActive)
             {

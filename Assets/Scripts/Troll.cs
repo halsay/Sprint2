@@ -15,6 +15,7 @@ public class Troll : MonoBehaviour {
     public string[] dialogLines;
     public string[] speakers;
     Animator anim;
+    public bool animComp;
     private itemList ilist;
     private ScreenFader sf;
     private DialogueManager dMan;
@@ -23,11 +24,12 @@ public class Troll : MonoBehaviour {
     {
         sf = FindObjectOfType<ScreenFader>();
         troll = this.transform;
-        faded = dialogueDone = false;
+        faded = dialogueDone = animComp = false;
         //target = GameObject.FindGameObjectWithTag("Little").transform;
         anim = GetComponent<Animator>();
-        anim.SetTrigger("appear");
-        anim.SetTrigger("idle");
+        /*anim.SetTrigger("appear");
+        anim.SetTrigger("idle");*/
+        StartCoroutine(appear());
         dMan = FindObjectOfType<DialogueManager>();
         ilist = FindObjectOfType<itemList>();
     }
@@ -40,7 +42,7 @@ public class Troll : MonoBehaviour {
         // troll.position += troll.forward * movSpeed * Time.deltaTime;
         if (!faded)
         {
-            if (canMove)
+            if (canMove && animComp)
             {
                 if (Vector2.Distance(troll.position, target.position) > dist)
                 {
@@ -100,14 +102,29 @@ public class Troll : MonoBehaviour {
     private IEnumerator fadeToMain()
     {
         yield return StartCoroutine(sf.FadeToBlack());
-        SceneManager.LoadScene("round3", LoadSceneMode.Single);
+        SceneManager.LoadScene("main", LoadSceneMode.Single);
         //yield return StartCoroutine(sf.FadeToClear());
     }
 
     private IEnumerator fadeTo2()
     {
         yield return StartCoroutine(sf.FadeToBlack());
-        SceneManager.LoadScene("round3", LoadSceneMode.Single);
+        SceneManager.LoadScene("round2", LoadSceneMode.Single);
         //yield return StartCoroutine(sf.FadeToClear());
+    }
+
+    private void animationComplete()
+    {
+        animComp = true;
+    }
+
+    private IEnumerator appear()
+    {
+        anim.SetTrigger("appear");
+        while (!animComp)
+        {
+            yield return null;
+        }
+        anim.SetTrigger("idle");
     }
 }

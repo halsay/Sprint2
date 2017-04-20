@@ -32,8 +32,6 @@ public class TrollTrigger : MonoBehaviour {
         if (!dialogueFinished && middle && little && big)
         {
             t.SetActive(true);
-            troll.SetTrigger("appear");
-            troll.SetTrigger("idle");
             if (!dMan.dialogActive)
             {
                 dMan.dialogLines = dialogLines;

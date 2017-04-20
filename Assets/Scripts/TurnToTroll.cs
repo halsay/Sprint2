@@ -33,6 +33,8 @@ public class TurnToTroll : MonoBehaviour {
             troll2.GetComponent<Animator>().SetTrigger("idle");
             troll1.GetComponent<Animator>().SetTrigger("appear");
             troll2.GetComponent<Animator>().SetTrigger("idle");
+            troll1.GetComponent<Troll>().animComp = true;
+            troll2.GetComponent<Troll>().animComp = true;
 
             troll1.GetComponent<Troll>().canMove = true;
             troll2.GetComponent<Troll>().canMove = true;

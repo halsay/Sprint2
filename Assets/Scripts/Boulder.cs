@@ -18,13 +18,13 @@ public class Boulder : MonoBehaviour {
 
     private bool dialogDone;
 
-    private Animator anim;
+    //private Animator anim;
     private BoxCollider2D box;
 
     void Start()
     {
         dMan = FindObjectOfType<DialogueManager>();
-        anim = GetComponent<Animator>();
+       // anim = GetComponent<Animator>();
         dialogDone = false;
         box = GetComponent<BoxCollider2D>();
     }

@@ -20,6 +20,7 @@ public class Troll : MonoBehaviour {
     private ScreenFader sf;
     private DialogueManager dMan;
     public GameObject little, middle, big;
+    public string stage = "main";
     void Start()
     {
         sf = FindObjectOfType<ScreenFader>();
@@ -102,7 +103,7 @@ public class Troll : MonoBehaviour {
     private IEnumerator fadeToMain()
     {
         yield return StartCoroutine(sf.FadeToBlack());
-        SceneManager.LoadScene("main", LoadSceneMode.Single);
+        SceneManager.LoadScene(stage, LoadSceneMode.Single);
         //yield return StartCoroutine(sf.FadeToClear());
     }
 

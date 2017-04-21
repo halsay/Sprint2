@@ -38,7 +38,7 @@ public class Monologue : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.name == "Little")
+        if (other.tag == "Little" || other.tag == "Middle" || other.tag== "Big")
         {
             if (!repeat)
             {

@@ -17,6 +17,8 @@ public class IntroManager : MonoBehaviour {
     private bool finished = false;
     private ScreenFader sf;
 
+    public string scene = "main";
+
     // Use this for initialization
     void Start() {
         sf = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
@@ -65,7 +67,7 @@ public class IntroManager : MonoBehaviour {
     private IEnumerator fadeOut()
     {
         yield return StartCoroutine(sf.FadeToBlack());
-        SceneManager.LoadScene("main", LoadSceneMode.Single);
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
 
     }
 

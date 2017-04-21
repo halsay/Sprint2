@@ -7,13 +7,13 @@ using UnityEngine.UI;
 public class StartMenu : MonoBehaviour {
 
     ScreenFader sf;
-    GameObject title;
+    GameObject[] text;
 
     // Use this for initialization
     void Start()
     {
         sf = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
-        title = GameObject.FindGameObjectWithTag("Title");
+        text = GameObject.FindGameObjectsWithTag("Title");
     }
     // Update is called once per frame
     void Update () {
@@ -26,7 +26,10 @@ public class StartMenu : MonoBehaviour {
 
     private IEnumerator fadeOut()
     {
-        title.SetActive(false);
+        for (int i = 0; i< text.Length; i++)
+        {
+            text[i].SetActive(false);
+        }
         yield return StartCoroutine(sf.FadeToBlack());
         SceneManager.LoadScene("intro", LoadSceneMode.Single);
         //yield return StartCoroutine(sf.FadeToClear());

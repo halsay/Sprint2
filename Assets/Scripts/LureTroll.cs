@@ -10,6 +10,7 @@ public class LureTroll : MonoBehaviour {
     private bool trigger;
     private DialogueManager dMan;
     private bool activated;
+    public GameObject warp;
 
     void Start()
     {
@@ -32,6 +33,7 @@ public class LureTroll : MonoBehaviour {
             {
                 troll.GetComponent<Troll>().canMove = true;
                 activated = true;
+                warp.SetActive(false);
             }
         }
     }

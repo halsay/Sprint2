@@ -55,7 +55,7 @@ public class DialogueManager : MonoBehaviour {
                 {
                     camSwitch.state = 1;
                 }
-                if (speakers[currentLine] == "Big Bold")
+                if (speakers[currentLine] == "Big")
                 {
                     camSwitch.state = 2;
                 }

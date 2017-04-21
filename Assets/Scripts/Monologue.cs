@@ -23,7 +23,7 @@ public class Monologue : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Little")
+        if (other.tag == "Little" || other.tag == "Middle" || other.tag == "Big")
         {
             if (!dMan.dialogActive && !triggered)
             {

@@ -8,7 +8,7 @@ public class Trap : MonoBehaviour {
     private DialogueManager dMan;
     public string[] dialogLines, dialogLines2;
     public string[] speakers, speakers2;
-    public Animator troll;
+    public GameObject troll;
     private bool d1Done,d2Done, sceneSwitched;
     private ScreenFader sf;
     // Use this for initialization
@@ -25,7 +25,7 @@ public class Trap : MonoBehaviour {
 
         if (!dMan.dialogActive && d1Done && !d2Done)
         {
-            troll.SetTrigger("appear");
+            troll.SetActive(true);
             dMan.dialogLines = dialogLines2;
             dMan.speakers = speakers2;
             dMan.currentLine = 0;

@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\DialogueHolder.cs" />
     <Compile Include="Assets\Scripts\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Door.cs" />
+    <Compile Include="Assets\Scripts\EnableBox.cs" />
     <Compile Include="Assets\Scripts\Follower.cs" />
     <Compile Include="Assets\Scripts\GoBack.cs" />
     <Compile Include="Assets\Scripts\Intro.cs" />
@@ -103,12 +104,14 @@
     <Compile Include="Assets\Scripts\TeleportScene.cs" />
     <Compile Include="Assets\Scripts\Trap.cs" />
     <Compile Include="Assets\Scripts\Troll.cs" />
+    <Compile Include="Assets\Scripts\TrollCam.cs" />
     <Compile Include="Assets\Scripts\TrollTrigger.cs" />
     <Compile Include="Assets\Scripts\TurnToTroll.cs" />
     <Compile Include="Assets\Scripts\Warp.cs" />
     <Compile Include="Assets\Scripts\checkPoint.cs" />
     <Compile Include="Assets\Scripts\eatGrass.cs" />
     <Compile Include="Assets\Scripts\itemList.cs" />
+    <Compile Include="Assets\Scripts\switchUI.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\CircleObject.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GroupLayer.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\ImportBehaviour.cs" />

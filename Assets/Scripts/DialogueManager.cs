@@ -68,35 +68,35 @@ public class DialogueManager : MonoBehaviour {
             {
                     currentLine++;
             }
-            
 
-        }
-
-        if(currentLine >= dialogLines.Length || Input.GetKeyDown(KeyCode.Escape))
-        {
-            dBox.SetActive(false);
-            dialogActive = false;
-            
-            currentLine = 0;
-            if (switchCam)
+            if (currentLine >= dialogLines.Length  || Input.GetKeyDown(KeyCode.Escape))
             {
-                if (pCon.state == 0)
+
+                dBox.SetActive(false);
+                dialogActive = false;
+                currentLine = 0;
+                if (switchCam)
+                {
+                    if (pCon.state == 0)
+                        little.GetComponent<PlayerMovement>().canMove = true;
+                    if (pCon.state == 1)
+                        middle.GetComponent<PlayerMovement>().canMove = true;
+                    if (pCon.state == 2)
+                        big.GetComponent<PlayerMovement>().canMove = true;
+                    camSwitch.state = pCon.state;
+                }
+                if (!switchCam)
+                {
                     little.GetComponent<PlayerMovement>().canMove = true;
-                if (pCon.state == 1)
-                    middle.GetComponent<PlayerMovement>().canMove = true;
-                if (pCon.state == 2)
-                    big.GetComponent<PlayerMovement>().canMove = true;
-                camSwitch.state = pCon.state;
+                }
+
             }
-            if (!switchCam)
-            {
-                little.GetComponent<PlayerMovement>().canMove = true;
-            }
-                
+
+            dText.text = dialogLines[currentLine];
+            cText.text = speakers[currentLine];
         }
 
-        dText.text = dialogLines[currentLine];
-        cText.text = speakers[currentLine];
+        
 
         
         

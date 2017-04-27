@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScreenFader : MonoBehaviour {
     Animator anim;
     bool isFading = false;
+    public Canvas canvas;
 
     private void Start()
     {
@@ -14,6 +15,7 @@ public class ScreenFader : MonoBehaviour {
     public IEnumerator FadeToBlack()
     {
         isFading = true;
+        canvas.enabled = false;
         anim.SetTrigger("FadeOut");
         while (isFading)
             yield return null;
@@ -24,6 +26,7 @@ public class ScreenFader : MonoBehaviour {
     public IEnumerator FadeToClear()
     {
         isFading = true;
+        canvas.enabled = true;
         anim.SetTrigger("FadeIn");
         while (isFading)
             yield return null;

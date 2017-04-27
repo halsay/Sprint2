@@ -10,14 +10,13 @@ public class TrollTrigger : MonoBehaviour {
     public Animator troll;
     private bool dialogueFinished;
     public GameObject t;
-    private bool little, middle, big;
+    public bool little, middle, big = false;
 
     // Use this for initialization
     void Start()
     {
         dMan = FindObjectOfType<DialogueManager>();
         dialogueFinished = false;
-        little = middle = big = false;
     }
 
     // Update is called once per frame

@@ -100,6 +100,14 @@ public class Troll : MonoBehaviour {
         }
     }
 
+   /* private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "WhiteDoor")
+        {
+            Debug.Log("Hit");
+            Destroy(collision.gameObject);
+        }
+    }*/
     private IEnumerator fadeToMain()
     {
         yield return StartCoroutine(sf.FadeToBlack());

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class TeleportScene : MonoBehaviour {
 
     public Portal portal1, portal2, portal3;
+    public string stage = "bossBattle";
     private bool Teleported = false;
     ScreenFader sf;
 
@@ -17,7 +18,7 @@ public class TeleportScene : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (portal1.activated && portal2.activated && portal3.activated && !Teleported)
+        if ((portal1.activated && portal2.activated && portal3.activated && !Teleported)||Input.GetKeyUp(KeyCode.T))
         {
             Teleported = true;
             StartCoroutine(fadeOut());
@@ -29,7 +30,7 @@ public class TeleportScene : MonoBehaviour {
     private IEnumerator fadeOut()
     {
         yield return StartCoroutine(sf.FadeToBlack());
-        SceneManager.LoadScene("bossBattle", LoadSceneMode.Single);
+        SceneManager.LoadScene(stage, LoadSceneMode.Single);
         //yield return StartCoroutine(sf.FadeToClear());
     }
 }
